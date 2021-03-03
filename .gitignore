@@ -12,3 +12,6 @@ blog/migrations/
 
 # Cache
 __pycache__/
+
+# Static files
+files/
