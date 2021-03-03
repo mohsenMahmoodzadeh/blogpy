@@ -21,7 +21,7 @@ class UserProfile(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=128, null=False, blank=False)
-    cover = models.FileField(upload_to='/files/article_cover', null=False, blank=False, validators=[validate_file_extension])
+    cover = models.FileField(upload_to='files/article_cover', null=False, blank=False, validators=[validate_file_extension])
     content = RichTextField()
     created_at = models.DateTimeField(default=datetime.now, blank=False)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
