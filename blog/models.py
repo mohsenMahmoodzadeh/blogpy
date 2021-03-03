@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from datetime import datetime
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.FileField(upload_to='files/user_avatar', null=False, blank=False)
@@ -16,3 +17,8 @@ class Article(models.Model):
     created_at = models.DateTimeField(default=datetime.now, blank=False)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     author = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=128, null=False, blank=False)
+    cover = models.FileField(upload_to='files/category_cover/', null=False, blank=False)
