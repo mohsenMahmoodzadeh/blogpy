@@ -4,6 +4,14 @@ from ckeditor.fields import RichTextField
 from datetime import datetime
 
 
+def validate_file_extension(value):
+    import os
+    from django.core.exceptions import ValidationError
+    extension = os.path.splitext(value.name)[1]
+    valid_extensions = ['.jpg', '.png']
+    if not extension.lower() in valid_extensions:
+        raise ValidationError('Unsupported file extension.')
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.FileField(upload_to='files/user_avatar', null=False, blank=False)
