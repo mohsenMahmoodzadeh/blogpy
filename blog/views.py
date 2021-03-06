@@ -8,7 +8,7 @@ class IndexPage(TemplateView):
     def get(self, request, **kwargs):
 
         article_data = []
-        all_articles = Article.objects.all()[:9]
+        all_articles = Article.objects.all().order_by('-created_at')[:9]
 
         for article in all_articles:
             article_data.append({
