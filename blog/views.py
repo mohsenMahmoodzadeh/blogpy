@@ -32,7 +32,7 @@ class IndexPage(TemplateView):
 
         context = {
             'article_data': article_data,
-            'promote_data': promote_data,
+            'promote_article_data': promote_data,
         }
 
         return render(request, 'index.html', context)
