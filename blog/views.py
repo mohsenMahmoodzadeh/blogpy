@@ -18,8 +18,21 @@ class IndexPage(TemplateView):
                 'created_at': article.created_at.date(),
             })
 
+        promote_data = []
+        all_promote_articles = Article.objects.filter(promote=True)
+        for promote_article in all_promote_articles:
+            promote_data.append({
+                'title': promote_article.title,
+                'author': promote_article.author.user.first_name + ' ' + promote_article.author.user.last_name,
+                'category': promote_article.category.title,
+                'cover': promote_article.cover.url if promote_article.cover else None,
+                'avatar': promote_article.author.avatar.url if promote_article.author.avatar else None,
+                'created_at': promote_article.created_at.date()
+            })
+
         context = {
             'article_data': article_data,
+            'promote_data': promote_data,
         }
 
         return render(request, 'index.html', context)
