@@ -23,6 +23,9 @@ class IndexPage(TemplateView):
                 'created_at': article.created_at.date(),
             })
 
+        # serialized_article_data = serializers.AllArticleSerializer(all_articles, many=True)
+        # article_data = serialized_article_data.data
+
         promote_data = []
         all_promote_articles = Article.objects.filter(promote=True)
         for promote_article in all_promote_articles:
@@ -34,6 +37,10 @@ class IndexPage(TemplateView):
                 'avatar': promote_article.author.avatar.url if promote_article.author.avatar else None,
                 'created_at': promote_article.created_at.date()
             })
+
+        # serialized_promote_data = serializers.PromoteSerializer(all_promote_articles, many=True)
+        # promote_data = serialized_promote_data.data
+
 
         context = {
             'article_data': article_data,
