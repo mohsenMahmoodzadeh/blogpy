@@ -95,3 +95,20 @@ class SingleArticleAPIView(APIView):
         except:
             return Response({'status': "Internal Server Error, We'll Check It Later."},
                             status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class SearchArticleAPIView(APIView):
+    def get(self, request, format=None):
+        try:
+            from django.db.models import Q
+
+            query = request.GET['query']
+            articles = Article.objects.filter(Q(content__icontains=query))
+            serialized_data = serializers.AllArticleSerializer(articles, many=True)
+            data = serialized_data.data
+
+            return Response({'data': data}, status=status.HTTP_200_OK)
+
+        except:
+            return Response({'status': "Internal Server Error, We'll Check It Later."},
+                            status=status.HTTP_500_INTERNAL_SERVER_ERROR)
