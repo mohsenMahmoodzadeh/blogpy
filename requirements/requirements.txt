@@ -13,7 +13,9 @@ diagnostic-common-diagnostics==1.9.7
 diagnostic-updater==1.9.7
 Django==3.1.7
 django-ckeditor==6.0.0
+django-filter==2.4.0
 django-js-asset==1.2.2
+djangorestframework==3.12.2
 dynamic-reconfigure==1.6.3
 gazebo-plugins==2.8.7
 gazebo-ros==2.8.7
@@ -23,11 +25,13 @@ genlisp==0.4.16
 genmsg==0.5.16
 gennodejs==2.0.1
 genpy==0.6.14
+gunicorn==20.0.4
 image-geometry==1.13.0
 interactive-markers==1.11.5
 joint-state-publisher==1.12.15
 kdl-parser-py==1.13.1
 laser-geometry==1.6.7
+Markdown==3.3.4
 message-filters==1.14.10
 psycopg2-binary==2.8.6
 python-qt-binding==0.4.3
