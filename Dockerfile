@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /blogpy
 WORKDIR /blogpy
-COPY ./blogpy
+COPY . /blogpy
 
 ADD requirements/requirements.txt /blogpy
 RUN pip install --upgrade pip
