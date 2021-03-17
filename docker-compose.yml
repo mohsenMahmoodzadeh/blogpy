@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-    - .:blogpy
+    - .:/blogpy
     - blogpy_static_volume:/blogpy/static
     - blogpy_files_volume:/blogpy/files
     restart: always
